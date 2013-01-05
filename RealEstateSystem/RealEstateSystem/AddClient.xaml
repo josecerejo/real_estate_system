@@ -1,0 +1,14 @@
+﻿<Window x:Class="RealEstateSystem.AddClient"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="AddClient" Height="300" Width="300">
+    <Grid>
+        <Label Content="First Name" Height="28" HorizontalAlignment="Left" Margin="12,12,0,0" Name="label1" VerticalAlignment="Top" />
+        <Label Content="Last Name" Height="28" HorizontalAlignment="Left" Margin="12,46,0,0" Name="label2" VerticalAlignment="Top" />
+
+        <TextBox Height="23" HorizontalAlignment="Left" Margin="118,17,0,0" Name="FirstName" VerticalAlignment="Top" Width="120" />
+        <TextBox Height="23" HorizontalAlignment="Left" Margin="118,46,0,0" Name="LastName" VerticalAlignment="Top" Width="120" />
+        <Button Content="Add Client" Height="23" HorizontalAlignment="Left" Margin="12,193,0,0" Name="Add" VerticalAlignment="Top" Width="75" Click="Add_Click" />
+        <Button Content="Cancel" Height="23" HorizontalAlignment="Left" Margin="134,193,0,0" Name="Cancel" VerticalAlignment="Top" Width="75" Click="Cancel_Click" />
+    </Grid>
+</Window>

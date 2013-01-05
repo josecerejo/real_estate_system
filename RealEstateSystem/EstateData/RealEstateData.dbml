@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="estate" Class="RealEstateDataDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=ASUSN53\SQL2008;Initial Catalog=estate;Integrated Security=True" SettingsObjectName="EstateData.Properties.Settings" SettingsPropertyName="estateConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Client" Member="Clients">
+    <Type Name="Client">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="FirstName" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="LastName" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Association Name="Client_Estate" Member="Estates" ThisKey="Id" OtherKey="Owner" Type="Estate" />
+      <Association Name="Client_Transaction" Member="Transactions" ThisKey="Id" OtherKey="CreditClient" Type="Transaction" />
+      <Association Name="Client_Transaction1" Member="Transactions1" ThisKey="Id" OtherKey="DebitClient" Type="Transaction" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Estate" Member="Estates">
+    <Type Name="Estate">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Description" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Fee" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Owner" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Photo" Type="System.Data.Linq.Binary" DbType="Image" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="Estate_Ad" Member="Ads" ThisKey="Id" OtherKey="EstateId" Type="Ad" />
+      <Association Name="Client_Estate" Member="Client" ThisKey="Owner" OtherKey="Id" Type="Client" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.[Transaction]" Member="Transactions">
+    <Type Name="Transaction">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="CreditClient" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DebitClient" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Amount" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="ValueDate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="Currency" Type="System.String" DbType="NVarChar(4)" CanBeNull="true" />
+      <Association Name="Client_Transaction" Member="Client" ThisKey="CreditClient" OtherKey="Id" Type="Client" IsForeignKey="true" />
+      <Association Name="Client_Transaction1" Member="Client1" ThisKey="DebitClient" OtherKey="Id" Type="Client" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Ad" Member="Ads">
+    <Type Name="Ad">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Title" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="EstateId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Description" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="StartDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="EndDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Photo" Type="System.Data.Linq.Binary" DbType="Image" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="Estate_Ad" Member="Estate" ThisKey="EstateId" OtherKey="Id" Type="Estate" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>

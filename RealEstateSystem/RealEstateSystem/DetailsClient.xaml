@@ -1,0 +1,19 @@
+﻿<Window x:Class="RealEstateSystem.DetailsClient"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="DetailsClient" Height="300" Width="500" Loaded="Window_Loaded">
+    <Grid>
+        <TextBox Height="23" HorizontalAlignment="Left" Margin="96,12,0,0" Name="FirstName" VerticalAlignment="Top" Width="120" />
+        <TextBox Height="23" HorizontalAlignment="Left" Margin="336,12,0,0" Name="LastName" VerticalAlignment="Top" Width="120" />
+        <Label Content="First Name" Height="28" HorizontalAlignment="Left" Margin="23,10,0,0" Name="label1" VerticalAlignment="Top" />
+        <Label Content="Last Name" Height="28" HorizontalAlignment="Left" Margin="264,10,0,0" Name="label2" VerticalAlignment="Top" />
+        <DataGrid AutoGenerateColumns="False" Height="154" HorizontalAlignment="Left" Margin="23,58,0,0" Name="EstateGrid" VerticalAlignment="Top" Width="389" SelectionChanged="EstateGrid_SelectionChanged">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Id" Binding="{Binding Path=Id}"/>
+                <DataGridTextColumn Header="Name" Binding="{Binding Path=Name}"/>
+                <DataGridTextColumn Header="Fee" Binding="{Binding Path=Fee}"/>
+                <DataGridTextColumn Header="Description" Binding="{Binding Path=Description}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>

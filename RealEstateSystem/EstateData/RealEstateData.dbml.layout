@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="RealEstateData">
+  <DataContextMoniker Name="/RealEstateDataDataContext" />
+  <nestedChildShapes>
+    <classShape Id="881e07b6-1fc2-4c1e-b7a2-c3d640a6d53c" absoluteBounds="0.75, 1.25, 2, 1.3862939453125">
+      <DataClassMoniker Name="/RealEstateDataDataContext/Client" />
+      <nestedChildShapes>
+        <elementListCompartment Id="76b365be-9179-407e-bf6d-4f6e664cbe7a" absoluteBounds="0.765, 1.71, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="475a97ad-c141-459d-9832-d697132a86af" absoluteBounds="0.75, 3.5, 2, 1.9631982421875">
+      <DataClassMoniker Name="/RealEstateDataDataContext/Estate" />
+      <nestedChildShapes>
+        <elementListCompartment Id="025b957d-0b49-49de-8526-9b81760ef50e" absoluteBounds="0.76500000000000012, 3.96, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(1.75 : 2.6362939453125); (1.75 : 3.5)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/RealEstateDataDataContext/Client/Client_Estate" />
+      <nodes>
+        <classShapeMoniker Id="881e07b6-1fc2-4c1e-b7a2-c3d640a6d53c" />
+        <classShapeMoniker Id="475a97ad-c141-459d-9832-d697132a86af" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="bf546435-9be7-44f9-aa82-83b1cf406556" absoluteBounds="4.375, 0.875, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/RealEstateDataDataContext/Transaction" />
+      <nestedChildShapes>
+        <elementListCompartment Id="416c6b21-2485-42f9-903a-31a6c74928c8" absoluteBounds="4.39, 1.335, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.75 : 1.94314697265625); (4.375 : 1.94314697265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/RealEstateDataDataContext/Client/Client_Transaction" />
+      <nodes>
+        <classShapeMoniker Id="881e07b6-1fc2-4c1e-b7a2-c3d640a6d53c" />
+        <classShapeMoniker Id="bf546435-9be7-44f9-aa82-83b1cf406556" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 1.53407348632813); (4.375 : 1.53407348632813)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/RealEstateDataDataContext/Client/Client_Transaction1" />
+      <nodes>
+        <classShapeMoniker Id="881e07b6-1fc2-4c1e-b7a2-c3d640a6d53c" />
+        <classShapeMoniker Id="bf546435-9be7-44f9-aa82-83b1cf406556" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="fe9075c9-4f50-4e43-8e5e-5221366db60f" absoluteBounds="3.5, 3.75, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/RealEstateDataDataContext/Ad" />
+      <nestedChildShapes>
+        <elementListCompartment Id="25b9a9ea-482e-4f44-b7e7-5d732d7e5d3d" absoluteBounds="3.5149999999999997, 4.21, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.75 : 4.60659912109375); (3.5 : 4.60659912109375)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/RealEstateDataDataContext/Estate/Estate_Ad" />
+      <nodes>
+        <classShapeMoniker Id="475a97ad-c141-459d-9832-d697132a86af" />
+        <classShapeMoniker Id="fe9075c9-4f50-4e43-8e5e-5221366db60f" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>
