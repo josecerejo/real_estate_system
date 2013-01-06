@@ -30,6 +30,33 @@ namespace RealEstateSystem
             List<Estate> estates = (from e1 in con.Estates
                                     select e1).ToList();
             EditEstatee.ItemsSource = estates;
+            EditEstatee.SelectionChanged += new SelectionChangedEventHandler(EditEstateeSelectionChanged);
+            EditEstatee.IsManipulationEnabled = false;
+            EditEstatee.IsReadOnly = true;
+
+            show.IsEnabled   = false;
+            delete.IsEnabled = false;
+            update.IsEnabled = false;
+            export.IsEnabled = false;
+        }
+
+        private void EditEstateeSelectionChanged(object sender, EventArgs e)
+        {
+            Estate selected = EditEstatee.SelectedItem as Estate;
+            if (selected != null && selected.Id.ToString().Length > 0)
+            {
+                show.IsEnabled = true;
+                delete.IsEnabled = true;
+                update.IsEnabled = true;
+                export.IsEnabled = true;
+            }
+            else
+            {
+                show.IsEnabled = false;
+                delete.IsEnabled = false;
+                update.IsEnabled = false;
+                export.IsEnabled = false;
+            }
         }
 
         private void cancel_Click(object sender, RoutedEventArgs e)
@@ -61,18 +88,22 @@ namespace RealEstateSystem
                 MessageBox.Show("You must select a estate");
             else
             {
-                if(MessageBoxResult.Yes == MessageBox.Show("Are you sure", "delete Estate", MessageBoxButton.YesNo, MessageBoxImage.Warning))
+                if(MessageBoxResult.Yes == MessageBox.Show("Are you sure?", "Yes", MessageBoxButton.YesNo, MessageBoxImage.Warning))
                 {
                     Admin.DeleteEstate(selected);
                     Window_Loaded(null,null);
                 }
             }
-
         }
 
         private void xml_export_click(object sender, RoutedEventArgs e)
         {
 
+
+        }
+
+        private void show_Click(object sender, RoutedEventArgs e)
+        {
 
         }
 

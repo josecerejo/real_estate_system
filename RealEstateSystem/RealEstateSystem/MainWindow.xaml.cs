@@ -41,6 +41,12 @@ namespace RealEstateSystem
             Application.Current.Shutdown();
         }
 
+        private void MenuItem_About(object sender, RoutedEventArgs e)
+        {
+            About aboutDialog = new About();
+            aboutDialog.ShowDialog();
+        }
+
         private void MenuItem_AddEstate(object sender, RoutedEventArgs e)
         {
             AddEstate estete = new AddEstate();

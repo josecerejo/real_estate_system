@@ -29,7 +29,31 @@ namespace RealEstateSystem
             RealEstateDataDataContext con = new RealEstateDataDataContext();
             List<Client> client = (from e1 in con.Clients
                                    select e1).ToList();
+
             EditClientt.ItemsSource = client;
+            EditClientt.SelectionChanged += new SelectionChangedEventHandler(EditClienttSelectionChanged);
+            EditClientt.IsReadOnly = true;
+
+            show.IsEnabled      = false;
+            delete.IsEnabled    = false;
+            update.IsEnabled    = false;
+        }
+
+        private void EditClienttSelectionChanged(object sender, EventArgs e)
+        {
+            Client selected = EditClientt.SelectedItem as Client;
+            if (selected != null && selected.Id.ToString().Length > 0)
+            {
+                show.IsEnabled = true;
+                delete.IsEnabled = true;
+                update.IsEnabled = true;
+            }
+            else
+            {
+                show.IsEnabled = false;
+                delete.IsEnabled = false;
+                update.IsEnabled = false;
+            }
         }
 
         private void cancel_Click(object sender, RoutedEventArgs e)
@@ -52,6 +76,18 @@ namespace RealEstateSystem
         private void EditClientt_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
+        }
+
+        private void show_Click(object sender, RoutedEventArgs e)
+        {
+            Client selected = EditClientt.SelectedItem as Client;
+            if (selected == null)
+                MessageBox.Show("You must select a client");
+            else
+            {
+                DetailsClient client = new DetailsClient(selected);
+                client.ShowDialog();
+            }
         }
 
 

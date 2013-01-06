@@ -2,8 +2,12 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
-        Title="EditEstate" Height="263" Width="580" Loaded="Window_Loaded">
+        Title="Estates" Height="263" Width="580" Loaded="Window_Loaded">
     <Grid Height="211" Width="548">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="461*" />
+            <ColumnDefinition Width="87*" />
+        </Grid.ColumnDefinitions>
         <DataGrid AutoGenerateColumns="False" Height="187" HorizontalAlignment="Left" Margin="12,12,0,0" Name="EditEstatee" VerticalAlignment="Top" Width="435" SelectionChanged="EditEstatee_SelectionChanged" Style="{DynamicResource DataGridDemoStyle}">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Unique Id" Binding="{Binding Path=Id}"/>
@@ -11,12 +15,12 @@
                 <DataGridTextColumn Header="Fee" Binding="{Binding Path=Fee}"/>
             </DataGrid.Columns>
         </DataGrid>
-        <Button Content="Update" Height="23" HorizontalAlignment="Left" Margin="461,13,0,0" Name="update" VerticalAlignment="Top" Width="75" Click="update_Click" />
-        <Button Content="Delete" Height="23" HorizontalAlignment="Left" Margin="461,42,0,0" Name="delete" VerticalAlignment="Top" Width="75" Click="delete_Click" />
-        <Button Content="Cancel" Height="23" HorizontalAlignment="Left" Margin="303,217,0,0" Name="cancel" VerticalAlignment="Top" Width="75" Click="cancel_Click" />
-
-
-        <xctk:SplitButton Content="Export" Height="23" HorizontalAlignment="Left" Margin="461,176,0,0" Name="button1" VerticalAlignment="Top" Width="75" Click="xml_export_click">
+        <Button Content="Show" Height="23" HorizontalAlignment="Left" Margin="461,13,0,0" Name="show" VerticalAlignment="Top" Width="75" Click="show_Click" Grid.ColumnSpan="2" />
+        <Button Content="Update" Height="23" HorizontalAlignment="Left" Margin="461,42,0,0" Name="update" VerticalAlignment="Top" Width="75" Click="update_Click" Grid.ColumnSpan="2" />
+        <Button Content="Delete" Height="23" HorizontalAlignment="Left" Margin="461,71,0,0" Name="delete" VerticalAlignment="Top" Width="75" Click="delete_Click" Grid.ColumnSpan="2" />
+        <Button Content="Cancel" Height="23" HorizontalAlignment="Left" Margin="461,176,0,0" Name="cancel" VerticalAlignment="Top" Width="75" Click="cancel_Click" Grid.ColumnSpan="2" />
+        
+        <xctk:SplitButton Content="Export" Height="23" HorizontalAlignment="Left" Margin="461,147,0,0" Name="export" VerticalAlignment="Top" Width="75" Click="xml_export_click" Grid.ColumnSpan="2">
             <xctk:SplitButton.DropDownContent>
                 <Button Content="XML file"  VerticalAlignment="Top" Click="xml_export_click" Width="75"/>
             </xctk:SplitButton.DropDownContent>

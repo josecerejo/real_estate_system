@@ -41,5 +41,10 @@ namespace RealEstateSystem
         {
             DialogResult = false;
         }
+
+        private void details_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
