@@ -5,12 +5,13 @@
     <Grid>
         <GroupBox Header="About" Height="132" HorizontalAlignment="Left" Margin="12,12,0,0" Name="groupBox1" VerticalAlignment="Top" Width="254">
             <Grid>
-                <TextBlock Height="97" HorizontalAlignment="Left" Margin="6,6,0,0" Name="textBlock1" Text="Real Estate Manager was designed for Data Base Student Class. Our lecturer was Tadeusz Pankowski." VerticalAlignment="Top" Width="230" TextAlignment="Center" TextWrapping="Wrap"  />
+                <TextBlock Height="97" HorizontalAlignment="Left" Margin="6,6,0,0" Name="textBlock1" Text="Real Estate Manager was designed for Databases Student Class. Our lecturer was Tadeusz Pankowski." VerticalAlignment="Top" Width="230" TextAlignment="Center" TextWrapping="Wrap"  />
             </Grid>
         </GroupBox>
         <GroupBox Header="Authors" Height="100" HorizontalAlignment="Left" Margin="12,149,0,0" Name="groupBox2" VerticalAlignment="Top" Width="254">
             <Grid>
                 <TextBlock Height="65" HorizontalAlignment="Left" Margin="6,6,0,0" Name="textBlock2" Text="Mautesz Kośmider, Justyna Skarbonkiewicz, Ernest Bursa - 2012 Poznań Poland." TextAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Top" Width="230" />
+                <Slider Height="23" HorizontalAlignment="Left" Margin="6,48,0,0" Name="slider1" VerticalAlignment="Top" Width="230" ValueChanged="slider1_ValueChanged" />
             </Grid>
         </GroupBox>
     </Grid>

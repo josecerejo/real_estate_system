@@ -119,6 +119,11 @@ namespace RealEstateSystem
             ad.ShowDialog();
         }
 
+        private void image1_ImageFailed(object sender, ExceptionRoutedEventArgs e)
+        {
+
+        }
+
         // AD END
 
         

@@ -22,5 +22,13 @@ namespace RealEstateSystem
         {
             InitializeComponent();
         }
+
+        private void slider1_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            if (e.NewValue == 10)
+            {
+                DialogResult = false;
+            }
+        }
     }
 }
