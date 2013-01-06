@@ -70,5 +70,11 @@ namespace RealEstateSystem
 
         }
 
+        private void xml_export_click(object sender, RoutedEventArgs e)
+        {
+
+
+        }
+
     }
 }

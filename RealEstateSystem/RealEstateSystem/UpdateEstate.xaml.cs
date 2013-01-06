@@ -15,6 +15,20 @@ using EstateData;
 using Microsoft.Win32;
 using System.IO;
 using System.Drawing.Imaging;
+using Xceed.Wpf.Toolkit;
+using System.Windows.Controls;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
+using System.Windows.Shapes;
+using System.Windows.Threading;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
 
 namespace RealEstateSystem
 {
@@ -44,7 +58,7 @@ namespace RealEstateSystem
         {
             Name.Text = estate.Name.Trim();
             Description.Text = estate.Description.Trim();
-            Fee.Text = estate.Fee.ToString();
+            ((TextBox)Fee.Content).Text = estate.Fee.ToString();
             
             comboBox1.SelectedIndex = 0;
             comboBox1.DataContext = estate;
@@ -70,11 +84,11 @@ namespace RealEstateSystem
             int num;
 
             if (Name.Text.Trim() == "")
-                MessageBox.Show("Missing name");
-            if (Fee.Text.Trim() == "")
-                MessageBox.Show("Missing fee");
-            if (float.TryParse(Fee.Text, out number) == false)
-                MessageBox.Show("You must enter a number");
+                System.Windows.MessageBox.Show("Missing name");
+            if (((TextBox)Fee.Content).Text.Trim() == "")
+                System.Windows.MessageBox.Show("Missing fee");
+            if (float.TryParse(((TextBox)Fee.Content).Text, out number) == false)
+                System.Windows.MessageBox.Show("You must enter a number");
             else
             {
                 estate.Name = Name.Text.Trim();
@@ -89,7 +103,7 @@ namespace RealEstateSystem
                 estate.Owner = num;
 
                 Admin.UpdateEstate(estate);
-                MessageBox.Show(estate.Name + " was updated");
+                System.Windows.MessageBox.Show(estate.Name + " was updated");
                 DialogResult = true;
             }
         
@@ -117,9 +131,28 @@ namespace RealEstateSystem
             }
         }
 
-        private void image1_ImageFailed(object sender, ExceptionRoutedEventArgs e)
+        private void imgScan_ImageFailed(object sender, ExceptionRoutedEventArgs e)
         {
-            
+
         }
+
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void ButtonSpinner_Spin(object sender, SpinEventArgs e)
+        {
+            ButtonSpinner spinner = (ButtonSpinner)sender;
+            TextBox txtBox = (TextBox)spinner.Content;
+
+            int value = String.IsNullOrEmpty(txtBox.Text) ? 0 : Convert.ToInt32(txtBox.Text);
+            if (e.Direction == SpinDirection.Increase)
+                value++;
+            else
+                value--;
+            txtBox.Text = value.ToString();
+        }
+
     }
 }
