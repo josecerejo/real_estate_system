@@ -61,7 +61,7 @@ namespace RealEstateSystem
 
         private void showparams_Click(object sender, RoutedEventArgs e)
         {
-            ShowEstates estate = new ShowEstates();
+            EditEstate estate = new EditEstate();
             estate.ShowDialog();
         }
 

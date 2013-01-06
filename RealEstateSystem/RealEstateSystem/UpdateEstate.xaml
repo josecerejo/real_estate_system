@@ -26,7 +26,7 @@
         <Button Content="Select" Height="23" HorizontalAlignment="Left" Margin="103,153,0,0" Name="Upload" VerticalAlignment="Top" Width="73" Click="Upload_Click" Grid.Column="2" />
         <Label Content="Photo" Height="28" HorizontalAlignment="Left" Margin="12,148,0,0" Name="label6" VerticalAlignment="Top" />
         <TextBox Height="23" HorizontalAlignment="Left" Margin="0,154,0,0" Name="File_Path" VerticalAlignment="Top" Width="93" Grid.Column="2" />
-        <Image Width="293" HorizontalAlignment="Left" Margin="15,17,0,12" Name="imgScan" DataContext="{Binding}" Grid.Column="3" ImageFailed="imgScan_ImageFailed" />
+        <Image Width="293" HorizontalAlignment="Left" Margin="15,17,0,12" Name="imgScan" DataContext="{Binding}" Grid.Column="3" ImageFailed="imgScan_ImageFailed" Cursor="Cross" Stretch="UniformToFill" />
 
     </Grid>
 </Window>

@@ -107,5 +107,30 @@ namespace RealEstateSystem
 
         }
 
+        private void searchButton_Click(object sender, RoutedEventArgs e)
+        {
+            findFilteredEstates();
+        }
+
+        private void findFilteredEstates()
+        {
+            float fee;
+            float.TryParse(Fee.Text, out fee);
+
+            RealEstateDataDataContext con = new RealEstateDataDataContext();
+            List<Estate> estates = (from e1 in con.Estates
+                                    where e1.Fee >= fee
+                                    select e1).ToList();
+            EditEstatee.ItemsSource = estates;
+        }
+
+        private void Fee_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                findFilteredEstates();
+            }
+        }
+
     }
 }
