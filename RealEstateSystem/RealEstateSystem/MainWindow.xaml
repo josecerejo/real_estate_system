@@ -21,7 +21,10 @@
                 <MenuItem Header="Clients" Click="MenuItem_ViewClient"/>
                 <Separator/>
                 <MenuItem Header="Estates" Click="MenuItem_ViewEstate"/>
+                <MenuItem Header="Transactions" Click="MenuItem_ViewTransaction"/>
+                <MenuItem Header="Ads" Click="MenuItem_ViewAd"/>
             </MenuItem>
         </Menu>
+        <Button Content="Show Estates" Height="23" HorizontalAlignment="Left" Margin="12,48,0,0" Name="showparams" VerticalAlignment="Top" Width="75" Click="showparams_Click" />
     </Grid>
 </Window>

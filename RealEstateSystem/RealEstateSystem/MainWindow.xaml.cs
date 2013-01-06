@@ -53,6 +53,12 @@ namespace RealEstateSystem
             estete.ShowDialog();
         }
 
+        private void showparams_Click(object sender, RoutedEventArgs e)
+        {
+            ShowEstates estate = new ShowEstates();
+            estate.ShowDialog();
+        }
+
         // ESTATE END
 
         // CLIENT START
@@ -85,6 +91,12 @@ namespace RealEstateSystem
             transaction.ShowDialog();
         }
 
+        private void MenuItem_ViewTransaction(object sender, RoutedEventArgs e)
+        {
+            ViewTransaction transaction = new ViewTransaction();
+            transaction.ShowDialog();
+        }
+
         // TRANSACTION END
 
         // AD START
@@ -92,6 +104,12 @@ namespace RealEstateSystem
         private void MenuItem_AddAd(object sender, RoutedEventArgs e)
         {
             AddAd ad = new AddAd();
+            ad.ShowDialog();
+        }
+
+        private void MenuItem_ViewAd(object sender, RoutedEventArgs e)
+        {
+            ViewAds ad = new ViewAds();
             ad.ShowDialog();
         }
 
