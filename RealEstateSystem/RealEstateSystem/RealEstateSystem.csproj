@@ -84,6 +84,9 @@
     <Compile Include="DetailsClient.xaml.cs">
       <DependentUpon>DetailsClient.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DetailsEstate.xaml.cs">
+      <DependentUpon>DetailsEstate.xaml</DependentUpon>
+    </Compile>
     <Compile Include="EditClient.xaml.cs">
       <DependentUpon>EditClient.xaml</DependentUpon>
     </Compile>
@@ -129,6 +132,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="DetailsClient.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DetailsEstate.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

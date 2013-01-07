@@ -59,11 +59,12 @@ namespace RealEstateSystem
                 estate.Fee = number;
 
                 num = Convert.ToInt32(comboBox1.SelectedValue);
-
-                FileStream photo = File.Open(Convert.ToString(File_Path.Text), FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
-                BinaryReader photoBinary = new BinaryReader(photo);
-                estate.Photo = photoBinary.ReadBytes((int)photo.Length);
-
+                if (Convert.ToString(File_Path.Text).Length > 0)
+                {
+                    FileStream photo = File.Open(Convert.ToString(File_Path.Text), FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+                    BinaryReader photoBinary = new BinaryReader(photo);
+                    estate.Photo = photoBinary.ReadBytes((int)photo.Length);
+                }
                 estate.Owner = num;
 
                 Admin.AddEstate(estate);

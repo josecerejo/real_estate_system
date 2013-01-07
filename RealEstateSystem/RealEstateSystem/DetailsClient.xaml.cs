@@ -30,19 +30,31 @@ namespace RealEstateSystem
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            FirstName.Text = client.FirstName.Trim();
-            LastName.Text = client.LastName.Trim();
-            
+            nameLabel.Content = client.FirstName.Trim() + " " + client.LastName.Trim();
+
             RealEstateDataDataContext con = new RealEstateDataDataContext();
             List<Estate> estates = (from e1 in con.Estates
                                     where e1.Owner == client.Id
                                     select e1).ToList();
             EstateGrid.ItemsSource = estates;
+            EstateGrid.IsReadOnly = true;
         }
 
         private void EstateGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
+        }
+
+
+        private void editClick(object sender, RoutedEventArgs e)
+        {
+            if (client == null)
+                MessageBox.Show("You must select a client");
+            else
+            {
+                UpdateClient clientUpdateDialog = new UpdateClient(client);
+                clientUpdateDialog.ShowDialog();
+            }
         }
     }
 }
