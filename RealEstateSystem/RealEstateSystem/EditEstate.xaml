@@ -13,7 +13,7 @@
             <ColumnDefinition Width="233*" />
             <ColumnDefinition Width="87*" />
         </Grid.ColumnDefinitions>
-        <DataGrid AutoGenerateColumns="False" Height="187" HorizontalAlignment="Left" Margin="12,8,0,0" Name="EditEstatee" VerticalAlignment="Top" Width="435" SelectionChanged="EditEstatee_SelectionChanged" Style="{DynamicResource DataGridDemoStyle}" Grid.Row="1" Grid.ColumnSpan="2">
+        <DataGrid AutoGenerateColumns="False" Height="187" HorizontalAlignment="Left" Margin="12,8,0,0" Name="EditEstatee" VerticalAlignment="Top" Width="435" SelectionChanged="EditEstatee_SelectionChanged" Style="{DynamicResource DataGridDemoStyle}" Grid.Row="1" Grid.ColumnSpan="2" MinColumnWidth="40" AlternationCount="1" ItemsSource="{Binding}" SelectionMode="Single">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Unique Id" Binding="{Binding Path=Id}"/>
                 <DataGridTextColumn Header="Name" Binding="{Binding Path=Name}"/>

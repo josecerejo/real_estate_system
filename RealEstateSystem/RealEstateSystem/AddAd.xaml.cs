@@ -64,10 +64,12 @@ namespace RealEstateSystem
                 dat = Convert.ToDateTime(datePicker2.Value);
                 ad.EndDate = dat;
 
-                FileStream photo = File.Open(Convert.ToString(File_Path.Text), FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
-                BinaryReader photoBinary = new BinaryReader(photo);
-                ad.Photo = photoBinary.ReadBytes((int)photo.Length);
-
+                if (File_Path.Text.Length > 0)
+                {
+                    FileStream photo = File.Open(Convert.ToString(File_Path.Text), FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+                    BinaryReader photoBinary = new BinaryReader(photo);
+                    ad.Photo = photoBinary.ReadBytes((int)photo.Length);
+                }
                 Admin.AddAd(ad);
                 System.Windows.MessageBox.Show(ad.Title + " was added");
                 DialogResult = true;

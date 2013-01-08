@@ -63,10 +63,6 @@ namespace RealEstateSystem
             comboBox1.SelectedIndex = 0;
             comboBox1.DataContext = estate;
 
-            int strippedImageLength = estate.Photo.Length;
-            byte[] imagdata = new byte[strippedImageLength];
-            Array.Copy(estate.Photo.ToArray(), 0, imagdata, 0, strippedImageLength);
-
             byte[] barrImg = (byte[])estate.Photo.ToArray();
             string strfn = Convert.ToString(DateTime.Now.ToFileTime());
             FileStream fs1 = new FileStream(strfn, FileMode.CreateNew, FileAccess.Write);

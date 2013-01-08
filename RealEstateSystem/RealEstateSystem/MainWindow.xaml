@@ -1,7 +1,7 @@
 ﻿<Window x:Class="RealEstateSystem.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Real Estate Manager 1.1" Height="198" Width="525" Loaded="Window_Loaded">
+        Title="Real Estate Manager 1.1" Loaded="Window_Loaded" mc:Ignorable="d" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" d:DesignHeight="198" d:DesignWidth="525" SizeToContent="WidthAndHeight">
     <Grid Height="157">
         <Menu Height="32" HorizontalAlignment="Stretch" Name="menu1" VerticalAlignment="Top" Width="503" >
             <MenuItem Header="_Menu" >
@@ -36,7 +36,7 @@
 
         </Menu>
         <Button Content="Show all estates" Height="23" HorizontalAlignment="Left" Margin="12,123,0,0" Name="showparams" VerticalAlignment="Top" Width="479" Click="showparams_Click" />
-        <Image Height="79" HorizontalAlignment="Left" Margin="12,38,0,0" Name="image1" Stretch="UniformToFill" VerticalAlignment="Top" Width="79" ImageFailed="image1_ImageFailed" DataContext="{Binding}" Source="/RealEstateSystem;component/home.ico" />
+        <Image Height="79" Margin="12,38,0,0" Name="image1" Stretch="UniformToFill" VerticalAlignment="Top" ImageFailed="image1_ImageFailed" DataContext="{Binding}" Source="/RealEstateSystem;component/home.ico" HorizontalAlignment="Left" Width="79" />
         <TextBlock Height="51" HorizontalAlignment="Left" Margin="97,77,0,0" Name="textBlock1" Text="Welcome! To find out main abilities please check out upper program menu. Manage Real Estates with class." VerticalAlignment="Top" Width="394" TextWrapping="Wrap" />
         <TextBlock Height="33" HorizontalAlignment="Left" Margin="97,38,0,0" Name="textBlock2" Text="Real Estate Manager" VerticalAlignment="Top" Width="394" FontSize="24" FontWeight="Bold" />
     </Grid>
