@@ -47,4 +47,10 @@
       <Association Name="Estate_Ad" Member="Estate" ThisKey="EstateId" OtherKey="Id" Type="Estate" IsForeignKey="true" />
     </Type>
   </Table>
+  <Function Name="dbo.count_money" Method="count_money">
+    <Parameter Name="id" Type="System.Int32" DbType="Int" />
+    <ElementType Name="count_moneyResult">
+      <Column Name="" Member="Column1" Type="System.Double" DbType="Float" CanBeNull="true" />
+    </ElementType>
+  </Function>
 </Database>

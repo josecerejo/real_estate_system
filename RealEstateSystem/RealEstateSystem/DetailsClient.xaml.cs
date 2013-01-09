@@ -10,6 +10,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Data.SqlClient;
 using EstateData;
 
 namespace RealEstateSystem
@@ -38,6 +39,12 @@ namespace RealEstateSystem
                                     select e1).ToList();
             EstateGrid.ItemsSource = estates;
             EstateGrid.IsReadOnly = true;
+
+            int cl;
+            cl = Convert.ToInt32(client.Id);
+            count_moneyResult result = new count_moneyResult();
+            var a = (count_moneyResult)con.count_money(cl).SingleOrDefault();
+            nameLabe2.Content = a.Column1;
         }
 
         private void EstateGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -55,6 +62,29 @@ namespace RealEstateSystem
                 UpdateClient clientUpdateDialog = new UpdateClient(client);
                 clientUpdateDialog.ShowDialog();
             }
+        }
+
+        private void button2_Click(object sender, RoutedEventArgs e)
+        {
+            SqlConnection conN = new SqlConnection();
+            SqlConnectionStringBuilder con = new SqlConnectionStringBuilder();
+            con.DataSource = ".";
+            con.InitialCatalog = "estate";
+            con.IntegratedSecurity = true;
+            conN.ConnectionString = con.ConnectionString;
+            conN.Open();
+            string zp = "SELECT COUNT(Id) FROM Estate";
+            SqlCommand command = conN.CreateCommand();
+            command.CommandText = zp;
+            SqlDataReader reader = command.ExecuteReader();
+            string tekst = "";
+            while (reader.Read())
+            {
+                tekst += reader.GetInt32(0);
+            }
+            reader.Close();			//zakończenie wczytywania
+            command.Cancel();
+            MessageBox.Show("dsa" + tekst);
         }
     }
 }
