@@ -64,27 +64,5 @@ namespace RealEstateSystem
             }
         }
 
-        private void button2_Click(object sender, RoutedEventArgs e)
-        {
-            SqlConnection conN = new SqlConnection();
-            SqlConnectionStringBuilder con = new SqlConnectionStringBuilder();
-            con.DataSource = ".";
-            con.InitialCatalog = "estate";
-            con.IntegratedSecurity = true;
-            conN.ConnectionString = con.ConnectionString;
-            conN.Open();
-            string zp = "SELECT COUNT(Id) FROM Estate";
-            SqlCommand command = conN.CreateCommand();
-            command.CommandText = zp;
-            SqlDataReader reader = command.ExecuteReader();
-            string tekst = "";
-            while (reader.Read())
-            {
-                tekst += reader.GetInt32(0);
-            }
-            reader.Close();			//zakończenie wczytywania
-            command.Cancel();
-            MessageBox.Show("dsa" + tekst);
-        }
     }
 }

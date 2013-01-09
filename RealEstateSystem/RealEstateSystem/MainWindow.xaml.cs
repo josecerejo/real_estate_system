@@ -11,6 +11,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Data.SqlClient;
 using EstateData;
 
 namespace RealEstateSystem
@@ -126,6 +127,53 @@ namespace RealEstateSystem
 
         // AD END
 
+        private void MenuItem_Summary(object sender, RoutedEventArgs e)
+        {
+            SqlConnection conN = new SqlConnection();
+            SqlConnectionStringBuilder con = new SqlConnectionStringBuilder();
+            con.DataSource = ".";
+            con.InitialCatalog = "estate";
+            con.IntegratedSecurity = true;
+            conN.ConnectionString = con.ConnectionString;
+            conN.Open();
+
+            string zp = "SELECT COUNT(*) FROM Estate";
+            SqlCommand command = conN.CreateCommand();
+            command.CommandText = zp;
+            SqlDataReader reader = command.ExecuteReader();
+            string tekst = "";
+            while (reader.Read())
+            {
+                tekst += reader.GetInt32(0);
+            }
+            reader.Close();
+            command.Cancel();
+
+            zp = "SELECT COUNT(*) FROM Client";
+            command = conN.CreateCommand();
+            command.CommandText = zp;
+            reader = command.ExecuteReader();
+            string tekst2 = "";
+            while (reader.Read())
+            {
+                tekst2 += reader.GetInt32(0);
+            }
+            reader.Close();
+            command.Cancel();
+
+            zp = "SELECT SUM(Fee) FROM Estate";
+            command = conN.CreateCommand();
+            command.CommandText = zp;
+            reader = command.ExecuteReader();
+            string tekst3 = "";
+            while (reader.Read())
+            {
+                tekst3 += reader.GetDouble(0);
+            }
+            reader.Close();
+            command.Cancel();
+            MessageBox.Show("At this moment in our system we have:\n" + tekst + " estates,\n" + tekst2 + " clients.\n\n" + "All our estates generate " + tekst3 + " income.");
+        }
         
     }
 }

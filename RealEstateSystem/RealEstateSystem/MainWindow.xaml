@@ -6,6 +6,7 @@
         <Menu Height="32" HorizontalAlignment="Stretch" Name="menu1" VerticalAlignment="Top" Width="503" >
             <MenuItem Header="_Menu" >
                 <MenuItem Header="_About" Click="MenuItem_About"/>
+                <MenuItem Header="_Summary" Click="MenuItem_Summary"/>
                 <Separator />
                 <MenuItem Header="_Exit" Click="MenuItem_Exit"/>
             </MenuItem>
